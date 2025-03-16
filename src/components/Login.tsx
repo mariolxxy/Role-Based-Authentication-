@@ -56,7 +56,7 @@ const Login: React.FC = () => {
           </p>
         </div>
         <div className="image">
-          <img src="public/images/login.svg" alt="welcome" />
+          <img src="./images/login.png" alt="login" />
         </div>
       </div>
     </div>

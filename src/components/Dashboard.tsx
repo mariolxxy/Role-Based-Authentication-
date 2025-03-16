@@ -25,16 +25,16 @@ const Dashboard: React.FC = () => {
         <aside className="sidebar">
           <ul>
             <li>
-              <a href="#">🏠 Home</a>
+              <a href="#"> Home</a>
             </li>
             <li>
-              <a href="#">📊 Analytics</a>
+              <a href="#"> Analytics</a>
             </li>
             <li>
-              <a href="#">📁 Reports</a>
+              <a href="#"> Reports</a>
             </li>
             <li>
-              <a href="#">⚙️ Settings</a>
+              <a href="#"> Settings</a>
             </li>
           </ul>
         </aside>
@@ -50,10 +50,10 @@ const Dashboard: React.FC = () => {
           <section className="recent-activity">
             <h2>Recent Activity</h2>
             <ul>
-              <li>✅ New users signed up</li>
-              <li>📦 Order #2345 was shipped</li>
-              <li>💰 Payment of $500 received</li>
-              <li>⚠️ System maintenance scheduled</li>
+              <li> New users signed up</li>
+              <li> Order #2345 was shipped</li>
+              <li> Payment of $500 received</li>
+              <li> System maintenance scheduled</li>
             </ul>
           </section>
         </main>
