@@ -1,53 +1,37 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
-import { AuthProvider } from "./components/AuthProvider";
-import Login from "./components/Login";
-import ProtectedRoute from "./components/ProtectedRoutes";
-import Dashboard from "./components/Dashboard";
-import Navbar from "./components/Navbar";
-import Profile from "./components/Profile";
-import Settings from "./components/Settings";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store/store";
+import UserList from "./components/UserList";
+import UserForm from "./components/UserForm";
+import UserDetails from "./components/UserDetails";
+import "./App.css"; // Import CSS file
 
-function App() {
+const App = () => {
   return (
-    <AuthProvider>
+    <Provider store={store}>
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute>
-                <Profile />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/settings"
-            element={
-              <ProtectedRoute roles={["Admin"]}>
-                <Settings />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
+        <div className="app-container">
+          <nav className="app-nav">
+            <Link to="/users" className="app-nav__link">
+              Users
+            </Link>
+            <Link to="/add-user" className="app-nav__link">
+              Add User
+            </Link>
+          </nav>
+          <div className="app-content">
+            <Routes>
+              <Route path="/users" element={<UserList />} />
+              <Route path="/users/:id" element={<UserDetails />} />
+              <Route path="/add-user" element={<UserForm />} />
+              <Route path="/edit-user/:id" element={<UserForm />} />
+            </Routes>
+          </div>
+        </div>
       </Router>
-    </AuthProvider>
+    </Provider>
   );
-}
+};
 
 export default App;
